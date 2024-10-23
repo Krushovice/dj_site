@@ -1,9 +1,9 @@
-{% extends 'post/base.html' %}
+{% extends 'blog/base.html' %}
 
 {% block title %}Blog{% endblock %}
-{% block content %}
+{% block body %}
     <h2 class="mb-3">My Blog</h2>
-    <a class="btn btn-primary mb-3" href="{% url 'blog: post_create' %}" role="button">
+    <a class="btn btn-primary mb-3" href="{% url 'blog:post_create' %}" role="button">
         Create post
     </a>
     {% if tag %}

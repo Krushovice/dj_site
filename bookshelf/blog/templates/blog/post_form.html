@@ -1,9 +1,9 @@
-{% extends 'post/base.html' %}
+{% extends 'blog/base.html' %}
 
 {% block title %}
   Create new post
 {% endblock %}
-{% block content %}
+{% block body %}
     <form method="post">{% csrf_token %}
         <div class="mb3">
             <label class="form-label">{{ form.as_p }}</label>

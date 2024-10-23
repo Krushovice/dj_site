@@ -1,7 +1,7 @@
-{% extends "post/base.html" %}
+{% extends "blog/base.html" %}
 {% block title %}{{ post.title }}{% endblock %}
 
-{% block content %}
+{% block body %}
     <h1>{{ post.title }}</h1>
     <p class="date">
         Published {{ post.publish }} by {{ post.author }}
@@ -44,5 +44,5 @@
     {% empty %}
         <p>There are no comments.</p>
     {% endfor %}
-    {% include "post/components/comment_form.html" %}
+    {% include "blog/components/comment_form.html" %}
 {% endblock %}
