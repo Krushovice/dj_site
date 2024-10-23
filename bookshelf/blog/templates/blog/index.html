@@ -2,7 +2,13 @@
 
 {% block title %}Blog{% endblock %}
 {% block body %}
-    <h2 class="mb-3">My Blog</h2>
+    <div id="sidebar">
+        <h2>My blog</h2>
+        <p>
+            This is my blog.
+            I've written 0 posts so far.
+        </p>
+    </div>
     <a class="btn btn-primary mb-3" href="{% url 'blog:post_create' %}" role="button">
         Create post
     </a>
