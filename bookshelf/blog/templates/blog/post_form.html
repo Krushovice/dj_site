@@ -5,9 +5,9 @@
 {% endblock %}
 {% block body %}
     <form method="post">{% csrf_token %}
-        <div class="mb3">
-            <label class="form-label">{{ form.as_p }}</label>
-          </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
+        <div>
+            {{ form.as_p }}
+        </div>
+        <button type="submit">Submit</button>
     </form>
 {% endblock %}
