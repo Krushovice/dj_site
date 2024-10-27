@@ -1,0 +1,10 @@
+services:
+
+  pg:
+    image: postgres
+    environment:
+      POSTGRES_DB: bookshelf
+      POSTGRES_USER: krushovice
+      POSTGRES_PASSWORD: password123
+    ports:
+      - "5432:5432"
