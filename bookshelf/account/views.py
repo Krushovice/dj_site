@@ -6,9 +6,9 @@ from django.contrib.auth.decorators import login_required
 
 
 @login_required
-def dashboard(request):
+def get_profile(request):
     return render(
         request,
-        "account/dashboard.html",
-        {"section": "dashboard"},
+        "account/profile.html",
+        {"section": "profile"},
     )

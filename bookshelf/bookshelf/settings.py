@@ -101,9 +101,9 @@ DATABASES = {
 
 # AUTH_USER_MODEL = "user.CustomUser"
 
-LOGIN_REDIRECT_URL = "dashboard"
-LOGIN_URL = "login"
-LOGOUT_URL = "logout"
+LOGIN_REDIRECT_URL = "account:profile"
+LOGIN_URL = "account:login"
+LOGOUT_URL = "account:logout"
 
 
 AUTH_PASSWORD_VALIDATORS = [
