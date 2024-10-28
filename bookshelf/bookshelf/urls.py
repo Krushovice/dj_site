@@ -22,10 +22,11 @@ from django.urls import path, include
 
 from django.views.generic import TemplateView
 
-from blog.sitemaps import PostSitemap
+from blog.sitemaps import PostSitemap, TagSitemap
 
 sitemaps = {
     "posts": PostSitemap,
+    "tags": TagSitemap,
 }
 urlpatterns = [
     path(
