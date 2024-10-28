@@ -36,6 +36,7 @@ SITE_ID = 1
 # Application definition
 
 INSTALLED_APPS = [
+    "account.apps.AccountConfig",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -47,7 +48,6 @@ INSTALLED_APPS = [
     "django.contrib.sitemaps",
     "taggit",
     "blog.apps.BlogConfig",
-    "account.apps.AccountConfig",
 ]
 
 MIDDLEWARE = [
@@ -100,6 +100,11 @@ DATABASES = {
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
 
 # AUTH_USER_MODEL = "user.CustomUser"
+
+LOGIN_REDIRECT_URL = "dashboard"
+LOGIN_URL = "login"
+LOGOUT_URL = "logout"
+
 
 AUTH_PASSWORD_VALIDATORS = [
     {
