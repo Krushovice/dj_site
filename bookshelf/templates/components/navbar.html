@@ -29,9 +29,15 @@
             <li><a class="dropdown-item" href="#">Топ недели</a></li>
           </ul>
         </li>
-        <li class="nav-item">
-          <a class="nav-link active">Вход</a>
-        </li>
+        {% if request.user.is_authenticated %}
+            <<li class="nav-item">
+                <a class="nav-link active" href="{% url "account:logout" %}">Logout</a>
+            </li>
+        {% else %}
+            <li class="nav-item">
+                <a class="nav-link active" href="{% url "account:login" %}">Login</a>
+            </li>
+        {% endif %}
       </ul>
      <form class="d-flex" role="search" method="get" action="{% url 'blog:post_search' %}">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="query">
