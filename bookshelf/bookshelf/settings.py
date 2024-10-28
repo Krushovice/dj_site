@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     "django.contrib.sitemaps",
     "taggit",
     "blog.apps.BlogConfig",
+    "account.apps.AccountConfig",
 ]
 
 MIDDLEWARE = [
