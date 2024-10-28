@@ -1,5 +1,6 @@
 from audioop import reverse
 
+from django.contrib.postgres.search import SearchVector
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.shortcuts import render, get_object_or_404
 
@@ -21,7 +22,7 @@ from taggit.models import Tag
 
 from .models import Post, Comment
 
-from .forms import EmailPostForm, PostForm, CommentForm
+from .forms import EmailPostForm, PostForm, CommentForm, SearchForm
 
 
 # Create your views here.
@@ -171,5 +172,29 @@ def post_comment_create(request, pk: int):
             "post": post,
             "form": form,
             "comment": comment,
+        },
+    )
+
+
+def post_search(request):
+    form = SearchForm(request.GET or None)
+    query = request.GET.get("query")
+    results = []
+
+    if query:
+        form = SearchForm(request.GET)
+        if form.is_valid():
+            query = form.cleaned_data["query"]
+            results = Post.published.annotate(
+                search=SearchVector("title", "body"),
+            ).filter(search=query)
+
+    return render(
+        request,
+        "blog/search.html",
+        context={
+            "form": form,
+            "query": query,
+            "results": results,
         },
     )
