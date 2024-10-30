@@ -18,7 +18,7 @@ urlpatterns = [
     ),
     path(
         "logout/",
-        auth_views.LogoutView.as_view(),
+        auth_views.LogoutView.as_view(next_page="account:login"),
         name="logout",
     ),
     # change password urls
