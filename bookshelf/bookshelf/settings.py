@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     "social_django",
     "taggit",
     "blog.apps.BlogConfig",
+    "book.apps.BookConfig",
 ]
 
 MIDDLEWARE = [
@@ -115,7 +116,7 @@ DATABASES = {
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
 
-# AUTH_USER_MODEL = "user.CustomUser"
+AUTH_USER_MODEL = "auth.User"
 
 LOGIN_REDIRECT_URL = "account:profile"
 LOGIN_URL = "account:login"
