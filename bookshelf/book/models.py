@@ -1,5 +1,7 @@
 from django.contrib.auth.models import User
 from django.db import models
+from django.db.models import Avg
+from django.template.context_processors import static
 
 from bookshelf import settings
 
@@ -26,17 +28,27 @@ class Book(models.Model):
         related_name="author_books",
         on_delete=models.CASCADE,
     )
-    isbn = models.CharField(max_length=32, unique=True, blank=True)
+
     genre = models.CharField(max_length=255)
 
     ratings = models.ManyToManyField(User, through="BookRating")
+
+    def avg_rating(self) -> float | int:
+        ratings = self.book_ratings.aggregate(Avg("rating"))
+        if ratings["rating__avg"]:
+            return round(ratings["rating__avg"], 1)
+        return 0
 
     def __str__(self):
         return self.title
 
 
 class BookRating(models.Model):
-    book = models.ForeignKey(Book, on_delete=models.CASCADE)
+    book = models.ForeignKey(
+        Book,
+        on_delete=models.CASCADE,
+        related_name="book_ratings",
+    )
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     rating = models.SmallIntegerField(
         choices=[(i, i) for i in range(1, 6)],
