@@ -1,0 +1,30 @@
+{% extends "book/base.html" %}
+
+{% block title %} Weekly top books{% endblock %}
+
+{% block body %}
+    <div>
+        <h3>Here are the 10 best books from last week, 
+        according to our users
+        </h3>
+        
+    </div>
+    <table class="table table-striped mb-3">
+        <thead>
+            <tr>
+                <th scope="col">Title</th>
+                <th>Author</th>
+                <th>Rating</th>
+            </tr>
+        </thead>
+            <tbody>
+            {% for book in top_list %}
+                <tr>
+                    <td>{{ book.author }}</td>
+                    <td>{{ book.title }}</td>
+                    <td>{{ book.avg_rating }}</td>
+                </tr>
+            </tbody>
+            {% endfor %}
+    </table>
+{% endblock %}
