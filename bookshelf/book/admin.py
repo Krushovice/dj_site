@@ -27,7 +27,7 @@ class AuthorAdmin(admin.ModelAdmin):
 
 @admin.register(BookRating)
 class BookRatingAdmin(admin.ModelAdmin):
-    list_display = ["rating", "book", "user"]
-    list_filter = ["rating"]
-    ordering = ["rating"]
+    list_display = ["rating", "book", "user", "created_at", "updated_at"]
+    list_filter = ["rating", "created_at", "updated_at"]
+    ordering = ["rating", "updated_at"]
     show_facets = admin.ShowFacets.ALWAYS
