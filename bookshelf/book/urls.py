@@ -7,5 +7,5 @@ app_name = "books"
 
 urlpatterns = [
     path("", views.IndexView.as_view(), name="index"),
-    # path("top-list/", views.top_list, name="top_list"),
+    path("top-list/", views.BestBooksListView.as_view(), name="top_list"),
 ]
