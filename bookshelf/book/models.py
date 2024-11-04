@@ -8,6 +8,13 @@ from bookshelf import settings
 
 
 class Book(models.Model):
+
+    class Meta:
+        ordering = ["-title"]
+        indexes = [
+            models.Index(fields=["-title"]),
+        ]
+
     users = models.ManyToManyField(
         settings.AUTH_USER_MODEL,
         related_name="user_books",
