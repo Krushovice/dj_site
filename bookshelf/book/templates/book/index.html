@@ -1,0 +1,25 @@
+{% extends "book/base.html" %}
+
+{% block title %} Books {% endblock %}
+{% block body %}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Author</th>
+                <th scope="col">Title</th>
+                <th scope="col">Rating</th>
+            </tr>
+        </thead>
+        {% for book in books %}
+            <tbody>
+                <tr>
+                    <th scope="row">{{ forloop.counter }}</th>
+                    <td>{{ book.author }}</td>
+                    <td>{{ book.title }}</td>
+                    <td>{{ book.avg_rating }}</td>
+                </tr>
+            </tbody>
+        {% endfor %}
+    </table>
+{% endblock %}

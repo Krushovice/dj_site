@@ -25,6 +25,8 @@
     <option name="TEMPLATE_FOLDERS">
       <list>
         <option value="$MODULE_DIR$/bookshelf/blog/templates" />
+        <option value="$MODULE_DIR$/bookshelf/book/templates" />
+        <option value="$MODULE_DIR$/bookshelf/account/templates" />
       </list>
     </option>
   </component>
