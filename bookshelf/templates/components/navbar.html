@@ -16,14 +16,14 @@
                   <a class="nav-link active" href="{% url 'blog:post_list' %}">Blog</a>
           </li>
           <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <a class="nav-link dropdown-toggle" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Books
               </a>
               <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Что почитать?</a></li>
-                  <li><a class="dropdown-item" href="#">Что читают другие?</a></li>
+                  <li><a class="dropdown-item" href="{% url 'books:index' %}">What to read?</a></li>
+                  <li><a class="dropdown-item" href="#">What others are reading</a></li>
                   <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">Топ недели</a></li>
+                  <li><a class="dropdown-item" href="#">Weekly top 10</a></li>
               </ul>
           </li>
           {% if request.user.is_authenticated %}
