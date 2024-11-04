@@ -54,6 +54,8 @@ class BookRating(models.Model):
         choices=[(i, i) for i in range(1, 6)],
         default=1,
     )
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
         unique_together = ("book", "user")
