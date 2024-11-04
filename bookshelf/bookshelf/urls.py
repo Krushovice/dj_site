@@ -57,6 +57,13 @@ urlpatterns = [
         ),
     ),
     path(
+        "books/",
+        include(
+            "book.urls",
+            namespace="book",
+        ),
+    ),
+    path(
         "sitemap.xml",
         sitemap,
         {"sitemaps": sitemaps},
