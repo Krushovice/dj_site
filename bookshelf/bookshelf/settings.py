@@ -41,7 +41,6 @@ SITE_ID = 1
 # Application definition
 
 INSTALLED_APPS = [
-    "account.apps.AccountConfig",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -56,6 +55,7 @@ INSTALLED_APPS = [
     "taggit",
     "blog.apps.BlogConfig",
     "book.apps.BookConfig",
+    "account.apps.AccountConfig",
 ]
 
 MIDDLEWARE = [
@@ -116,7 +116,7 @@ DATABASES = {
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
 
-AUTH_USER_MODEL = "auth.User"
+AUTH_USER_MODEL = "account.CustomUser"
 
 LOGIN_REDIRECT_URL = "account:profile"
 LOGIN_URL = "account:login"
