@@ -31,7 +31,10 @@ class Book(models.Model):
 
     genre = models.CharField(max_length=255)
 
-    ratings = models.ManyToManyField(User, through="BookRating")
+    ratings = models.ManyToManyField(
+        settings.AUTH_USER_MODEL,
+        through="BookRating",
+    )
 
     def avg_rating(self) -> float | int:
         ratings = self.book_ratings.aggregate(Avg("rating"))
@@ -49,7 +52,10 @@ class BookRating(models.Model):
         on_delete=models.CASCADE,
         related_name="book_ratings",
     )
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+    )
     rating = models.SmallIntegerField(
         choices=[(i, i) for i in range(1, 6)],
         default=1,
